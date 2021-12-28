@@ -7,6 +7,8 @@
 import SwiftUI
 import AVFoundation
 import CoreML
+import Foundation
+import UIKit
 
 
 // extension to uiimage
@@ -14,37 +16,38 @@ import CoreML
 
 class GlobalImage {
     static var shared = GlobalImage()
-    
+
+
     var image: UIImage = UIImage(imageLiteralResourceName: "placeholder")
 }
 
 extension UIImage {
-        
+
     func convertToBuffer() -> CVPixelBuffer? {
-        
+
         let attributes = [
             kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
             kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue
         ] as CFDictionary
-        
+
         var pixelBuffer: CVPixelBuffer?
-        
+
         let status = CVPixelBufferCreate(
             kCFAllocatorDefault, Int(self.size.width),
             Int(self.size.height),
             kCVPixelFormatType_32ARGB,
             attributes,
             &pixelBuffer)
-        
+
         guard (status == kCVReturnSuccess) else {
             return nil
         }
-        
+
         CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        
+
         let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-        
+
         let context = CGContext(
             data: pixelData,
             width: Int(self.size.width),
@@ -53,35 +56,35 @@ extension UIImage {
             bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!),
             space: rgbColorSpace,
             bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
-        
+
         context?.translateBy(x: 0, y: self.size.height)
         context?.scaleBy(x: 1.0, y: -1.0)
-        
+
         UIGraphicsPushContext(context!)
         self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
         UIGraphicsPopContext()
-        
+
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        
+
         return pixelBuffer
     }
 }
 
 func testModel() -> RecycleRadarOutput? {
-    
+
     do{
-        
+
         let config = MLModelConfiguration()
         let model = try RecycleRadar(configuration: config)
-    
-        let prediction = try model.prediction(image: GlobalImage.shared.image.convertToBuffer()!!)
+
+        let prediction = try model.prediction(image: GlobalImage.shared.image.convertToBuffer()!)
         return prediction
-        
+
     }
     catch{
         print("error here")
     }
-    
+
     return nil
 }
 
@@ -109,7 +112,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Spacer()
-                Text(predictedClass)
+//                Text(predictedClass)
             }
         }
     }
@@ -287,12 +290,9 @@ class CameraModel: NSObject,ObservableObject, AVCapturePhotoCaptureDelegate{
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         self.isSaved = true
+
         
-     
-        
-        GlobalImage.shared.image = image
-        
-        print("saved Sucessfully... & on global image too")
+        print("saved Sucessfully...")
     }
 }
 
@@ -319,9 +319,9 @@ struct CameraPreview: UIViewRepresentable{
 }
 
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
