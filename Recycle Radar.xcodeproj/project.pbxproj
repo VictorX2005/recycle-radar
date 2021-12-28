@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57252A09275E8F4800C174F3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57252A08275E8F4800C174F3 /* ColorExtension.swift */; };
+		573B85F62762BAB6003B5D32 /* RecycleRadar.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 573B85F52762BAB6003B5D32 /* RecycleRadar.mlmodel */; };
 		5794BE3C2757F5D3006B2DD0 /* Recycle_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5794BE3B2757F5D3006B2DD0 /* Recycle_RadarApp.swift */; };
 		5794BE3E2757F5D3006B2DD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5794BE3D2757F5D3006B2DD0 /* ContentView.swift */; };
 		5794BE402757F5D5006B2DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5794BE3F2757F5D5006B2DD0 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57252A08275E8F4800C174F3 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		573B85F52762BAB6003B5D32 /* RecycleRadar.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecycleRadar.mlmodel; sourceTree = "<group>"; };
 		5794BE382757F5D3006B2DD0 /* Recycle Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recycle Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5794BE3B2757F5D3006B2DD0 /* Recycle_RadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recycle_RadarApp.swift; sourceTree = "<group>"; };
 		5794BE3D2757F5D3006B2DD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57252A07275E8F3E00C174F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57252A08275E8F4800C174F3 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5794BE2F2757F5D3006B2DD0 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +63,10 @@
 		5794BE3A2757F5D3006B2DD0 /* Recycle Radar */ = {
 			isa = PBXGroup;
 			children = (
+				57252A07275E8F3E00C174F3 /* Extensions */,
 				5794BE3B2757F5D3006B2DD0 /* Recycle_RadarApp.swift */,
 				5794BE3D2757F5D3006B2DD0 /* ContentView.swift */,
+				573B85F52762BAB6003B5D32 /* RecycleRadar.mlmodel */,
 				5794BE3F2757F5D5006B2DD0 /* Assets.xcassets */,
 				5794BE412757F5D5006B2DD0 /* Preview Content */,
 			);
@@ -137,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57252A09275E8F4800C174F3 /* ColorExtension.swift in Sources */,
+				573B85F62762BAB6003B5D32 /* RecycleRadar.mlmodel in Sources */,
 				5794BE3E2757F5D3006B2DD0 /* ContentView.swift in Sources */,
 				5794BE3C2757F5D3006B2DD0 /* Recycle_RadarApp.swift in Sources */,
 			);
@@ -272,6 +288,8 @@
 				DEVELOPMENT_TEAM = 3888GU5239;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +320,8 @@
 				DEVELOPMENT_TEAM = 3888GU5239;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
